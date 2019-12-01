@@ -39,16 +39,20 @@ public class Car {
         maxSpeed = maxSpeed + 1;
     }
     
-    public void theCarGotFucked() {
-        
-    }
-    
+   
     public void getIn() {
-        numberOfPeopleInCar++;
+       if (numberOfPeopleInCar < 5) {
+           numberOfPeopleInCar++;
+           System.out.println("Someone got in.");
+       } else {
+           System.out.println("Car is full, keep walkin punk");
+       }
     }
     
     public void getOut() {
-        numberOfPeopleInCar--;
+       if(numberOfPeopleInCar > 0) {
+           numberOfPeopleInCar--;
+       }
     }
        
     public double howManyMilesTilOutOfGas() {
@@ -59,10 +63,20 @@ public class Car {
         return maxFuel * mpg;
     }
     
+    public void turnTheCarOn(){
+        if (!isTheCarOn) {
+            isTheCarOn = true;
+        } 
+    }
+    
     public static void main(String[] args) {
         Car birthdayPresent = new Car(50, 5000.454, true);
         System.out.println("Birthday Car v1");
         birthdayPresent.printVariables();
+        birthdayPresent.getIn();
+        birthdayPresent.getIn();
+        birthdayPresent.getIn();
+        birthdayPresent.getIn();
         birthdayPresent.getIn();
         birthdayPresent.getIn();
         birthdayPresent.getIn();
@@ -71,6 +85,9 @@ public class Car {
         System.out.println("Birthday Car v2");
         birthdayPresent.getOut();
         birthdayPresent.printVariables();
+       
+}
+
         
         
         
